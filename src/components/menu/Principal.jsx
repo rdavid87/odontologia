@@ -1,7 +1,7 @@
 import React from "react";
 import { Empty } from 'antd';
 
-const Principal = () => {
+function Principal() {
     return (
         <>
         <Empty description="No hay registros" />
