@@ -1,18 +1,22 @@
-import React from "react";
-import { Layout, Menu, Breadcrumb } from 'antd';
+import React, { useEffect, useState }  from "react";
+import { Layout, Menu, Space } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { BrowserRouter, Route, Switch, Link, Router } from 'react-router-dom';
 
-import Principal from './Principal';
+import Bienvenido from './Bienvenido';
 import Pacientes from '../pacientes/Pacientes';
 import Odontologos from '../odontologos/Odontologos';
+import Turnos from '../turnos/Turnos';
+import Logout from '../login/Logout';
 
 const { Header, Content, Footer } = Layout;
 
 
-const Home = () => {
+const Home = ({onLogout}) => {
+
 
   return (
+    
     <BrowserRouter>
     <Layout className="layout">
       <Header>
@@ -20,32 +24,42 @@ const Home = () => {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['2']}
+          defaultSelectedKeys={['1']}
           style={{ lineHeight: '64px' }}
         >
           <Menu.Item key="1">
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/bienvenido">Home</NavLink>
           </Menu.Item>
           <Menu.Item key="2">
-            <NavLink to="/Pacientes">Pacientes</NavLink>
+            <NavLink to="/pacientes">Pacientes</NavLink>
           </Menu.Item>
           <Menu.Item key="3">
-            <NavLink to="/Odontologos">Odontólogos</NavLink>
+            <NavLink to="/odontologos">Odontólogos</NavLink>
+          </Menu.Item>
+          <Menu.Item key="4">
+            <NavLink to="/turnos">Turnos</NavLink>
+          </Menu.Item>
+          <Menu.Item key="5">
+            <NavLink to="/" onClick={onLogout}>Salir</NavLink>
           </Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: '0 50px' }}>
-      
-        <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+        <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+          <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
           <Switch>
-            <Route exact path="/" component={Principal} />
-            <Route exact path="/Pacientes" component={Pacientes} />
-            <Route exact path="/Odontologos" component={Odontologos} />
+            <Route exact path="/bienvenido" component={Bienvenido} />
+            <Route exact path="/home" component={Bienvenido} />
+            <Route path="/pacientes" component={Pacientes} />
+            <Route path="/odontologos" component={Odontologos} />
+            <Route path="/turnos" component={Turnos} />
+            <Route path="/" component={Bienvenido} />
+            
           </Switch>
-        </div>
-        
+          </div>
+        </Space>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      <Footer style={{ textAlign: 'center' }}>Ronald@DH</Footer>
     </Layout>
     </BrowserRouter>
   );
