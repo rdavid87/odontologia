@@ -2,7 +2,7 @@
 
 
 BackEnd Spring Boot
-- [Proyecto en ReactJs](https://github.com/rdavid87/projectOdontologoSpringBoot)
+- [Proyecto en Spring Boot](https://github.com/rdavid87/projectOdontologoSpringBoot)
 
 ### Sistema de reserva de turnos
 Se desea implementar un sistema que permita administrar la reserva de turnos para una clínica odontológica. Este debe cumplir con los siguientes requerimientos:
